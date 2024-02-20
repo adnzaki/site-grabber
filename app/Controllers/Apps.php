@@ -12,8 +12,12 @@ class Apps extends BaseController
             return view('nothing');
         } else {           
             $model = new SiteListModel;
-            $data['site'] = $model->siteList[$backhalf];
-            return view('app', $data);
+            if(!array_key_exists($backhalf, $model->siteList)) {
+                return view('nothing');
+            } else {
+                $data['site'] = $model->siteList[$backhalf];
+                return view('app', $data);
+            }
         }
     }
 }
