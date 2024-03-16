@@ -10,7 +10,7 @@ class SiteListModel
             'exp'   => '1724216077'
         ],
         'dapodik-pgn7'  => [
-            'url'   => 'https://09cd-101-255-168-6.ngrok-free.app/',
+            'url'   => 'https://8ce1-101-255-168-6.ngrok-free.app/',
             'title' => 'Dapodik SDN Pengasinan VII',
             'paid'  => true,
             'exp'   => '1724216077'
