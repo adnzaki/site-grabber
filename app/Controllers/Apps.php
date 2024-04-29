@@ -15,8 +15,8 @@ class Apps extends BaseController
             if(!array_key_exists($backhalf, $model->siteList)) {
                 return view('nothing');
             } else {
-                $site = $model->siteList[$backhalf];
-                $paid = ($site['paid'] === true && $site['exp'] > strtotime('now')) ? true : false;
+                $site = $model->getSiteList($backhalf);
+                $paid = ($site->paid === true && $site->exp > strtotime('now')) ? true : false;
 
                 $data['site'] = $site;
                 $data['paid'] = $paid;
