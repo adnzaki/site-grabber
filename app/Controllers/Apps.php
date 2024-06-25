@@ -14,7 +14,7 @@ class Apps extends BaseController
             $model = new SiteListModel;
             if($model->checkSite($backhalf)) {
                 $site = $model->getSiteList($backhalf);
-                $paid = ($site->paid === true && $site->exp > strtotime('now')) ? true : false;
+                $paid = ($site->paid === '1' && $site->exp > strtotime('now')) ? true : false;
     
                 $data['site'] = $site;
                 $data['paid'] = $paid;
