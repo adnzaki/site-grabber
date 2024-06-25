@@ -10,18 +10,18 @@ class Apps extends BaseController
     {
         if(empty($backhalf)) {
             return view('nothing');
-        } else {           
+        } else {        
             $model = new SiteListModel;
-            if(!array_key_exists($backhalf, $model->siteList)) {
-                return view('nothing');
-            } else {
+            if($model->checkSite($backhalf)) {
                 $site = $model->getSiteList($backhalf);
                 $paid = ($site->paid === true && $site->exp > strtotime('now')) ? true : false;
-
+    
                 $data['site'] = $site;
                 $data['paid'] = $paid;
-
+    
                 return view('app', $data);
+            } else {
+                return view('nothing');
             }
         }
     }
